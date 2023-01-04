@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using Shared.Models;
 
 namespace DataAccessLayer.Repositories
 {
     public interface ITeamMemberRepository
     {
+        List<Task> GetPersonalTasks(int teamMemberId);
+        int UpdateSelf(TeamMember tm);
+        TeamMember GetPatient(string email, string password);
     }
 }
