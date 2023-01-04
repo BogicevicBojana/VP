@@ -33,6 +33,7 @@ namespace DataAccessLayer.Repositories
                     task.Title = reader.GetString(5);
                     task.IsCompleted = reader.GetBoolean(6);
                     task.Description = reader.GetString(7);
+                    task.HoursSpent = reader.GetDouble(8);
                     ListOfTasks.Add(task);
                 }
                 reader.Close();

@@ -14,6 +14,7 @@ namespace Shared.Models
         public string Title { get; set; }
         public bool IsCompleted { get; set; }
         public string Description { get; set; }
+        public double HoursSpent { get; set; }
         public int ProjectManagerId { get; set; }
         public int TeamMemberId { get; set; }
     }
