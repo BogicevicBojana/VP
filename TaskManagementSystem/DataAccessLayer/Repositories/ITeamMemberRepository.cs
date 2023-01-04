@@ -10,6 +10,6 @@ namespace DataAccessLayer.Repositories
     {
         List<Task> GetPersonalTasks(int teamMemberId);
         int UpdateSelf(TeamMember tm);
-        TeamMember GetPatient(string email, string password);
+        TeamMember GetTeamMember(string email, string password);
     }
 }
