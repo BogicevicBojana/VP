@@ -179,8 +179,8 @@ namespace PresentationLayer.Forms
 
                 if (admin.FirstName != null)
                 {
-                    MainForm adminForm = new MainForm(admin);
-                    adminForm.Show();
+                   // MainForm adminForm = new MainForm(admin);
+                   // adminForm.Show();
                     this.Hide();
                 }
                 else if (email == "Unesi email" || password == "Unesi lozinku" 
