@@ -19,6 +19,8 @@ namespace PresentationLayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            var services = new ServiceCollection();
+            ConfigureServices(services);
             Application.Run(new Forms.LoginForm());
         }
 
