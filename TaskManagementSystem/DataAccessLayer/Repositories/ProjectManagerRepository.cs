@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
@@ -127,6 +126,50 @@ namespace DataAccessLayer.Repositories
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "DELETE FROM Team_Members WHERE id=@id";
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@id", id);
+
+                connection.Open();
+                int rowsUpdated;
+                rowsUpdated = command.ExecuteNonQuery();
+                connection.Close();
+                return rowsUpdated;
+            }
+        }
+        public List<Task> GetAllTasks()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Tasks";
+                SqlCommand command = new SqlCommand(query, connection);
+                connection.Open();
+                List<Task> tasks = new List<Task>();
+
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Task task = new Task();
+                    task.Id = reader.GetInt32(0);
+                    task.DateIssued = reader.GetDateTime(1);
+                    task.DueDate = reader.GetDateTime(2);
+                    task.ProjectManagerId = reader.GetInt32(3);
+                    task.TeamMemberId = reader.GetInt32(4);
+                    task.Title = reader.GetString(5);
+                    task.IsCompleted = reader.GetBoolean(6);
+                    task.Description = reader.GetString(7);
+                    task.HoursSpent = reader.GetDouble(8);
+                }
+                reader.Close();
+                connection.Close();
+                return tasks;
+            }
+        }
+
+        public int DeleteTask(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "DELETE FROM Tasks WHERE id=@id";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@id", id);
 

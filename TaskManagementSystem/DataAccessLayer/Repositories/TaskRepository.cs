@@ -102,7 +102,7 @@ namespace DataAccessLayer.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT * FROM Taska WHERE id=@id";
+                string query = "SELECT * FROM Tasks WHERE id=@id";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@id", id);
                 connection.Open();

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
@@ -14,6 +13,8 @@ namespace DataAccessLayer.Repositories
         int InsertTeamMember(TeamMember tm);
         ProjectManager GetProjectManager(string email, string password);
         int DeleteTeamMember(int id);
+        List<Task> GetAllTasks();
+        int DeleteTask(int id);
 
     }
 }
