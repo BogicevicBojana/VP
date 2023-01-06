@@ -14,7 +14,7 @@ namespace DataAccessLayer.Repositories
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Tasks VALUES(@date_issued,@due_date,@project_manager_id,@team_member_id,@title,@is_completed,@description)";
+                string query = "INSERT INTO Tasks (date_issued,due_date,project_manager_id,team_member_id,title,is_completed,description,hours_spent) VALUES(@date_issued,@due_date,@project_manager_id,@team_member_id,@title,@is_completed,@description,0)";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@date_issued", DateTime.Now);
                 command.Parameters.AddWithValue("@due_date", task.DueDate);
