@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLayer;
 
 namespace PresentationLayer.Forms
 {
@@ -15,9 +16,18 @@ namespace PresentationLayer.Forms
         bool mouseDown;
         private Point offset;
 
+        private readonly IAdminBusiness adminBusiness;
+        private readonly IProjectManagerBusiness projectManagerBusiness;
+        private readonly ITaskBusiness taskBusiness;
+        private readonly ITeamMemberBusiness teamMemberBusiness;
 
-        public LoginForm()
+        public LoginForm(IAdminBusiness _adminBusiness, IProjectManagerBusiness _projectManagerBusiness, ITaskBusiness _taskBusiness, ITeamMemberBusiness _teamMemberBusiness)
         {
+            this.adminBusiness = _adminBusiness;
+            this.projectManagerBusiness = _projectManagerBusiness;
+            this.taskBusiness = _taskBusiness;
+            this.teamMemberBusiness = _teamMemberBusiness;
+
             InitializeComponent();
         }
 
@@ -113,6 +123,11 @@ namespace PresentationLayer.Forms
         }
 
         private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
         {
 
         }
