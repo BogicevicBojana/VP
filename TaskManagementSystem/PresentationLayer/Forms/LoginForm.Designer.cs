@@ -296,6 +296,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button_login);
             this.Controls.Add(this.panel_top);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

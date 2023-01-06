@@ -34,6 +34,11 @@ namespace PresentationLayer.Forms
             InitializeComponent();
         }
 
+        public LoginForm()
+        {
+            InitializeComponent();
+        }
+
         private void panel_top_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
@@ -166,16 +171,31 @@ namespace PresentationLayer.Forms
         {
             String email = textBox_user.Text;
             String password = textBox_password.Text;
+            Admin admin = null;
 
-            Admin admin = adminBusiness.GetAdmin(email, password);
+            try
+            {
+                admin = adminBusiness.GetAdmin(email, password);
 
-            if (admin.FirstName != null)
+                if (admin.FirstName != null)
+                {
+                    MainForm adminForm = new MainForm(admin);
+                    adminForm.Show();
+                    this.Hide();
+                }
+                else if (email == "Unesi email" || password == "Unesi lozinku" 
+                    || email == "" || password == "")
+                {
+                    MessageBox.Show("Popuni sva tražena polja.", "Neispravan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Korsnik nije pronađen! Proveri podatke i probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch(NullReferenceException NRE)
             {
-                
-            } 
-            else
-            {
-                MessageBox.Show("Korsnik ne postoji! Probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Korsnik nije pronađen! Proveri podatke i probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
