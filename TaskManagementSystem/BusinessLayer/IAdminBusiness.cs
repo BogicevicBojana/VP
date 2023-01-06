@@ -13,5 +13,6 @@ namespace BusinessLayer
         string InsertProjectManager(ProjectManager pm);
         string UpdateProjectManager(ProjectManager pm);
         string DeleteProjectManager(int id);
+        Admin GetAdmin(String email, String password);
     }
 }

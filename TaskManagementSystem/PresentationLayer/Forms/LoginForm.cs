@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using Shared.Models;
 
 namespace PresentationLayer.Forms
 {
@@ -15,6 +16,7 @@ namespace PresentationLayer.Forms
     {
         bool mouseDown;
         private Point offset;
+        private Roles selectedRole;
 
         private readonly IAdminBusiness adminBusiness;
         private readonly IProjectManagerBusiness projectManagerBusiness;
@@ -28,12 +30,8 @@ namespace PresentationLayer.Forms
             this.taskBusiness = _taskBusiness;
             this.teamMemberBusiness = _teamMemberBusiness;
 
+            selectedRole = Roles.ADMINISTRATOR;
             InitializeComponent();
-        }
-
-        private void panel_top_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void panel_top_MouseMove(object sender, MouseEventArgs e)
@@ -59,27 +57,26 @@ namespace PresentationLayer.Forms
 
         private void textBox_user_MouseClick(object sender, MouseEventArgs e)
         {
-            this.textBox_user.Text = "";
-            this.textBox_user.ForeColor = Color.FromArgb(255, 255, 255);
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
+            if (textBox_user.Text == "Unesi email")
+            {
+                this.textBox_user.Text = "";
+                this.textBox_user.ForeColor = Color.FromArgb(255, 255, 255);
+            }
         }
 
         private void LoginForm_MouseClick(object sender, MouseEventArgs e)
         {
             if(textBox_user.Text == "")
             {
-                textBox_user.Text = "Unesi mejl";
+                textBox_user.Text = "Unesi email";
                 this.textBox_user.ForeColor = Color.FromArgb(200, 200, 200);
             }
 
-            if (textBox_user.Focused)
+            if (textBox_password.Text == "")
             {
-                this.textBox_user.Text = "";
-                this.textBox_user.ForeColor = Color.FromArgb(255, 255, 255);
+                textBox_password.Text = "Unesi lozinku";
+                textBox_password.PasswordChar = default;
+                this.textBox_password.ForeColor = Color.FromArgb(200, 200, 200);
             }
         }
 
@@ -92,26 +89,6 @@ namespace PresentationLayer.Forms
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button5_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -122,14 +99,84 @@ namespace PresentationLayer.Forms
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void textBox_password_TabIndexChanged(object sender, EventArgs e)
         {
-
+            if (textBox_password.Focused)
+            {
+                this.textBox_password.Text = "";
+                this.textBox_password.ForeColor = Color.FromArgb(255, 255, 255);
+            }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void textBox_password_MouseClick(object sender, MouseEventArgs e)
         {
+            if (textBox_password.Text == "Unesi lozinku")
+            {
+                this.textBox_password.Text = "";
+                this.textBox_password.ForeColor = Color.FromArgb(255, 255, 255);
+            }
+        }
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            if (textBox_password.Text == "Unesi lozinku")
+            {
+                textBox_password.PasswordChar = default;
+            }
+        }
+
+        private void textBox_password_TextChanged(object sender, EventArgs e)
+        {
+            textBox_password.PasswordChar = '●';
+        }
+
+
+        private void radioButton_admin_CheckedChanged(object sender, EventArgs e)
+        {
+            selectedRole = Roles.ADMINISTRATOR;
+        }
+
+        private void radioButton_manager_CheckedChanged(object sender, EventArgs e)
+        {
+            selectedRole = Roles.PROJECT_MANAGER;
+        }
+
+        private void radioButton_teamMember_CheckedChanged(object sender, EventArgs e)
+        {
+            selectedRole = Roles.TEAM_MEMBER;
+        }
+
+        private void button_login_Click(object sender, EventArgs e)
+        {
+            switch (selectedRole)
+            {
+                case Roles.ADMINISTRATOR:
+                    adminLogin();
+                    break;
+                case Roles.PROJECT_MANAGER:
+                    
+                    break;
+                case Roles.TEAM_MEMBER:
+                    
+                    break;
+            }
+        }
+
+        private void adminLogin()
+        {
+            String email = textBox_user.Text;
+            String password = textBox_password.Text;
+
+            Admin admin = adminBusiness.GetAdmin(email, password);
+
+            if (admin.FirstName != null)
+            {
+                
+            } 
+            else
+            {
+                MessageBox.Show("Korsnik ne postoji! Probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
