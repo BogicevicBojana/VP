@@ -41,6 +41,8 @@ namespace PresentationLayer
             services.AddScoped<IProjectManagerBusiness, ProjectManagerBusiness>();
             services.AddScoped<ITeamMemberBusiness, TeamMemberBusiness>();
             services.AddScoped<ITaskBusiness, TaskBusiness>();
+
+            services.AddScoped<Forms.LoginForm>();
         }
     }
 }
