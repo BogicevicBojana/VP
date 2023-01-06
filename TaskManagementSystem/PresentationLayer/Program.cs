@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Extensions.DependencyInjection;
 using DataAccessLayer.Repositories;
+using BusinessLayer;
 
 namespace PresentationLayer
 {
@@ -27,6 +28,10 @@ namespace PresentationLayer
             services.AddScoped<IProjectManagerRepository, ProjectManagerRepository>();
             services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
+            services.AddScoped<IAdminBusiness, AdminBusiness>();
+            services.AddScoped<IProjectManagerBusiness, ProjectManagerBusiness>();
+            services.AddScoped<ITeamMemberBusiness, TeamMemberBusiness>();
+            services.AddScoped<ITaskBusiness, TaskBusiness>();
         }
     }
 }
