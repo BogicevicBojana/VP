@@ -19,6 +19,7 @@ namespace PresentationLayer.UserControls.Admin
             InitializeComponent();
         }
 
+        
         private void UC_AdminProfile_Load(object sender, EventArgs e)
         {
             lbl_firstName.Text = admin.FirstName + ' ' + admin.LastName;

@@ -177,7 +177,7 @@ namespace PresentationLayer.Forms
 
                 if (admin.FirstName != null)
                 {
-                    MainForm adminForm = new MainForm(admin);
+                    MainForm adminForm = new MainForm(admin, this);
                     adminForm.Show();
                     this.Hide();
                 }

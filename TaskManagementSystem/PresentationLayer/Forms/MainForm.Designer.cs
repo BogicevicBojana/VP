@@ -177,17 +177,18 @@
             this.btnRents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRents.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRents.ForeColor = System.Drawing.Color.DarkGray;
+            this.btnRents.Image = global::PresentationLayer.Properties.Resources.icons8_log_out_24;
             this.btnRents.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRents.Location = new System.Drawing.Point(0, 242);
             this.btnRents.Name = "btnRents";
             this.btnRents.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.btnRents.Size = new System.Drawing.Size(224, 60);
             this.btnRents.TabIndex = 4;
-            this.btnRents.Text = "   Rente";
+            this.btnRents.Text = "   Odjavi se";
             this.btnRents.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRents.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRents.UseVisualStyleBackColor = true;
-            this.btnRents.Visible = false;
+            this.btnRents.Click += new System.EventHandler(this.btnRents_Click);
             // 
             // btnApartments
             // 
@@ -207,6 +208,7 @@
             this.btnApartments.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnApartments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnApartments.UseVisualStyleBackColor = true;
+            this.btnApartments.Click += new System.EventHandler(this.btnApartments_Click);
             // 
             // btnUsers
             // 

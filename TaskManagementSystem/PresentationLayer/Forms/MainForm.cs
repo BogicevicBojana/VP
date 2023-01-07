@@ -20,10 +20,12 @@ namespace PresentationLayer
         bool mouseDown;
         private Point offset;
         private Admin admin;
+        Forms.LoginForm prevForm;
 
-        public MainForm(Admin _admin)
+        public MainForm(Admin _admin, Forms.LoginForm _prevForm)
         {
             this.admin = _admin;
+            this.prevForm = _prevForm;
             InitializeComponent();
 
             uC_AdminProfile1.SetAdmin(_admin);
@@ -93,6 +95,17 @@ namespace PresentationLayer
         private void MainForm_Load(object sender, EventArgs e)
         {
             uC_AdminProfile1.SetAdmin(admin);
+        }
+
+        private void btnRents_Click(object sender, EventArgs e)
+        {
+            prevForm.Show();
+            this.Close();
+        }
+
+        private void btnApartments_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
