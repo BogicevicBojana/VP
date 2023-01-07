@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared.Models;
 
 namespace PresentationLayer
 {
@@ -18,10 +19,14 @@ namespace PresentationLayer
     {
         bool mouseDown;
         private Point offset;
+        private Admin admin;
 
-        public MainForm()
+        public MainForm(Admin _admin)
         {
+            this.admin = _admin;
             InitializeComponent();
+
+            uC_AdminProfile1.SetAdmin(_admin);
         }
 
         private void panel_top_Paint(object sender, PaintEventArgs e)
@@ -58,6 +63,36 @@ namespace PresentationLayer
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void uC_AdminProfile1_Load(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            uC_AdminProfile1.SetAdmin(admin);
         }
     }
 }
