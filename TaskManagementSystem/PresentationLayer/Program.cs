@@ -23,7 +23,6 @@ namespace PresentationLayer
             var services = new ServiceCollection();
             ConfigureServices(services);
 
-
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
                 var form = serviceProvider.GetRequiredService<Forms.LoginForm>();
@@ -37,12 +36,18 @@ namespace PresentationLayer
             services.AddScoped<IProjectManagerRepository, ProjectManagerRepository>();
             services.AddScoped<ITeamMemberRepository, TeamMemberRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
+
             services.AddScoped<IAdminBusiness, AdminBusiness>();
             services.AddScoped<IProjectManagerBusiness, ProjectManagerBusiness>();
             services.AddScoped<ITeamMemberBusiness, TeamMemberBusiness>();
             services.AddScoped<ITaskBusiness, TaskBusiness>();
 
-            services.AddScoped<Forms.LoginForm>();
+            
+            services.AddTransient<Forms.LoginForm>();
+            services.AddTransient<MainForm>();
+            services.AddScoped<UserControls.Admin.UC_AddManager>();
+            services.AddScoped<UserControls.Admin.UC_AdminProfile>();
+            services.AddScoped<UserControls.Admin.UC_Managers>();
         }
     }
 }

@@ -22,8 +22,11 @@ namespace PresentationLayer.UserControls.Admin
         
         private void UC_AdminProfile_Load(object sender, EventArgs e)
         {
-            lbl_firstName.Text = admin.FirstName + ' ' + admin.LastName;
-            lbl_Email.Text = admin.Email;
+            if (admin != null)
+            {
+                lbl_firstName.Text = admin.FirstName + ' ' + admin.LastName;
+                lbl_Email.Text = admin.Email;
+            }
         }
 
         public void SetAdmin(Shared.Models.Admin admin) 
