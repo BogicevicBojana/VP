@@ -171,20 +171,17 @@ namespace PresentationLayer.Forms
         {
             String email = textBox_user.Text;
             String password = textBox_password.Text;
-            Admin admin = null;
-
             try
             {
-                admin = adminBusiness.GetAdmin(email, password);
+                Admin admin = adminBusiness.GetAdmin(email, password);
 
                 if (admin.FirstName != null)
                 {
-                   // MainForm adminForm = new MainForm(admin);
-                   // adminForm.Show();
+                    MainForm adminForm = new MainForm(admin, this);
+                    adminForm.Show();
                     this.Hide();
                 }
-                else if (email == "Unesi email" || password == "Unesi lozinku" 
-                    || email == "" || password == "")
+                else if (email == "Unesi email" || password == "Unesi lozinku" || email == "" || password == "")
                 {
                     MessageBox.Show("Popuni sva tražena polja.", "Neispravan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -193,7 +190,7 @@ namespace PresentationLayer.Forms
                     MessageBox.Show("Korsnik nije pronađen! Proveri podatke i probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(NullReferenceException NRE)
+            catch (NullReferenceException NRE)
             {
                 MessageBox.Show("Korsnik nije pronađen! Proveri podatke i probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
