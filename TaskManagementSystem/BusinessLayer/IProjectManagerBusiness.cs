@@ -14,5 +14,7 @@ namespace BusinessLayer
         string DeleteTeamMember(int id);
         List<Task> GetAllTasks();
         string DeleteTask(int id);
+        ProjectManager GetProjectManager(String email, String password);
+        List<Task> GetAllTasksForProjectManager(int id);
     }
 }

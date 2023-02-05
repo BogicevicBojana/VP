@@ -159,7 +159,7 @@ namespace PresentationLayer.Forms
                     adminLogin();
                     break;
                 case Roles.PROJECT_MANAGER:
-                    
+                    projectManagerLogin();
                     break;
                 case Roles.TEAM_MEMBER:
                     
@@ -167,10 +167,41 @@ namespace PresentationLayer.Forms
             }
         }
 
+        private void projectManagerLogin()
+        {
+            String email = textBox_user.Text;
+            String password = textBox_password.Text;
+
+            try
+            {
+                ProjectManager pm = projectManagerBusiness.GetProjectManager(email, password);
+
+                if(pm.FirstName != null)
+                {
+                    ProjectManagerMainForm projectManagerMainForm = new ProjectManagerMainForm(pm, this);
+                    projectManagerMainForm.Show();
+                    this.Hide();
+                }
+                else if (email == "Unesi email" || password == "Unesi lozinku" || email == "" || password == "")
+                {
+                    MessageBox.Show("Popuni sva tražena polja.", "Neispravan unos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Korsnik nije pronađen! Proveri podatke i probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (NullReferenceException NRE)
+            {
+                MessageBox.Show("Korsnik nije pronađen! Proveri podatke i probaj ponovo.", "Došlo je do greške", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void adminLogin()
         {
             String email = textBox_user.Text;
             String password = textBox_password.Text;
+
             try
             {
                 Admin admin = adminBusiness.GetAdmin(email, password);

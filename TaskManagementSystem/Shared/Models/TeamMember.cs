@@ -21,5 +21,9 @@ namespace Shared.Models
         public int CompletedTasks { get; set; }
         public int NotCompletedTasks { get; set; }
         public double HoursSpent { get; set; }
+
+        public override string ToString() {
+            return $"{FirstName} {LastName}";
+        }
     }
 }

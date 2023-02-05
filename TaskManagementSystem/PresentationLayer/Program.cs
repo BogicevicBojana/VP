@@ -42,12 +42,12 @@ namespace PresentationLayer
             services.AddScoped<ITeamMemberBusiness, TeamMemberBusiness>();
             services.AddScoped<ITaskBusiness, TaskBusiness>();
 
-            
-            services.AddTransient<Forms.LoginForm>();
-            services.AddTransient<MainForm>();
             services.AddScoped<UserControls.Admin.UC_AddManager>();
             services.AddScoped<UserControls.Admin.UC_AdminProfile>();
             services.AddScoped<UserControls.Admin.UC_Managers>();
+            services.AddTransient<Forms.LoginForm>();
+            services.AddTransient<Forms.UpdateProjectManagerForm>();
+            services.AddTransient<MainForm>();
         }
     }
 }
