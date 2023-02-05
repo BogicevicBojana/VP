@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.btnSave = new Sipaa.Framework.SButton();
-            this.sPanel1 = new Sipaa.Framework.SPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new Sipaa.Framework.SButton();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,13 +52,15 @@
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtPersonalNumber = new System.Windows.Forms.TextBox();
-            this.sPanel1.SuspendLayout();
+            this.label2 = new System.Windows.Forms.Label();
+            this.sPanel1 = new Sipaa.Framework.SPanel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.sPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSave
@@ -80,30 +80,6 @@
             this.btnSave.Text = "Sačuvaj";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // sPanel1
-            // 
-            this.sPanel1.BackColor = System.Drawing.Color.SlateBlue;
-            this.sPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.sPanel1.BorderRadius = 0;
-            this.sPanel1.BorderSize = 0;
-            this.sPanel1.Controls.Add(this.label2);
-            this.sPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sPanel1.ForeColor = System.Drawing.Color.White;
-            this.sPanel1.Location = new System.Drawing.Point(0, 0);
-            this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(636, 55);
-            this.sPanel1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(622, 36);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Izmena zapisa";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -366,6 +342,30 @@
             this.txtPersonalNumber.Size = new System.Drawing.Size(235, 20);
             this.txtPersonalNumber.TabIndex = 8;
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(636, 36);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Izmena zapisa";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // sPanel1
+            // 
+            this.sPanel1.BackColor = System.Drawing.Color.SlateBlue;
+            this.sPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.sPanel1.BorderRadius = 0;
+            this.sPanel1.BorderSize = 0;
+            this.sPanel1.Controls.Add(this.label2);
+            this.sPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sPanel1.ForeColor = System.Drawing.Color.White;
+            this.sPanel1.Location = new System.Drawing.Point(0, 0);
+            this.sPanel1.Name = "sPanel1";
+            this.sPanel1.Size = new System.Drawing.Size(636, 55);
+            this.sPanel1.TabIndex = 2;
+            // 
             // UpdateProjectManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -397,7 +397,6 @@
             this.Text = "UpdateProjectManagerForm";
             this.Load += new System.EventHandler(this.UpdateProjectManagerForm_Load);
             this.Shown += new System.EventHandler(this.UpdateProjectManagerForm_Shown);
-            this.sPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -410,6 +409,7 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.sPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,9 +418,7 @@
         #endregion
 
         private Sipaa.Framework.SButton btnSave;
-        private Sipaa.Framework.SPanel sPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private Sipaa.Framework.SButton btnClose;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -443,5 +441,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtLastName;
+        private System.Windows.Forms.Label label2;
+        private Sipaa.Framework.SPanel sPanel1;
     }
 }

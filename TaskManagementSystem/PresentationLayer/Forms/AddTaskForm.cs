@@ -51,6 +51,10 @@ namespace PresentationLayer.Forms
                 {
                     String resultMessage = taskBusiness.InsertTask(newTask);
                     MessageBox.Show(resultMessage, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    txtTitle.Clear();
+                    txtDescription.Clear();
+                    comboTeamMember.SelectedIndex = -1;
                 }
                 catch (Exception ex)
                 {

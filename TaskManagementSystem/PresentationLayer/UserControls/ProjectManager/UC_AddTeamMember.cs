@@ -25,7 +25,7 @@ namespace PresentationLayer.UserControls.ProjectManager
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            TeamMember newMember = new TeamMember();
+            var newMember = new Shared.Models.TeamMember();
 
             String firstName = txtFirstName.Text.Trim();
             String lastName = txtLastName.Text.Trim();

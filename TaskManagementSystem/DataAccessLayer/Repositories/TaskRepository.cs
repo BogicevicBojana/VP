@@ -38,7 +38,7 @@ namespace DataAccessLayer.Repositories
                 string query = "UPDATE Tasks SET due_date=@dueDate,title=@title,description=@description WHERE id=@id";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@dueDate", task.DueDate);
-                command.Parameters.AddWithValue("@title", task.DueDate);
+                command.Parameters.AddWithValue("@title", task.Title);
                 command.Parameters.AddWithValue("@description", task.Description);
                 command.Parameters.AddWithValue("@id", task.Id);
 

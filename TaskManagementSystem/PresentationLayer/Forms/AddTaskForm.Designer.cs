@@ -38,17 +38,18 @@
             this.txtDescription = new System.Windows.Forms.RichTextBox();
             this.btnClose = new Sipaa.Framework.SButton();
             this.btnSave = new Sipaa.Framework.SButton();
-            this.sPanel1 = new Sipaa.Framework.SPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.sPanel1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtpDueDate
             // 
             this.dtpDueDate.CalendarFont = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDueDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDueDate.Location = new System.Drawing.Point(335, 201);
             this.dtpDueDate.Name = "dtpDueDate";
-            this.dtpDueDate.Size = new System.Drawing.Size(174, 22);
+            this.dtpDueDate.Size = new System.Drawing.Size(174, 30);
             this.dtpDueDate.TabIndex = 0;
             // 
             // label1
@@ -71,7 +72,7 @@
             this.comboTeamMember.FormattingEnabled = true;
             this.comboTeamMember.Location = new System.Drawing.Point(64, 199);
             this.comboTeamMember.Name = "comboTeamMember";
-            this.comboTeamMember.Size = new System.Drawing.Size(252, 31);
+            this.comboTeamMember.Size = new System.Drawing.Size(240, 31);
             this.comboTeamMember.TabIndex = 2;
             // 
             // label2
@@ -166,27 +167,24 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // sPanel1
+            // panel1
             // 
-            this.sPanel1.BackColor = System.Drawing.Color.OliveDrab;
-            this.sPanel1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.sPanel1.BorderRadius = 0;
-            this.sPanel1.BorderSize = 0;
-            this.sPanel1.Controls.Add(this.label5);
-            this.sPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sPanel1.ForeColor = System.Drawing.Color.White;
-            this.sPanel1.Location = new System.Drawing.Point(0, 0);
-            this.sPanel1.Name = "sPanel1";
-            this.sPanel1.Size = new System.Drawing.Size(583, 55);
-            this.sPanel1.TabIndex = 10;
+            this.panel1.BackColor = System.Drawing.Color.OliveDrab;
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(583, 55);
+            this.panel1.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(0, 9);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(583, 36);
-            this.label5.TabIndex = 4;
+            this.label5.TabIndex = 5;
             this.label5.Text = "Novi zadatak";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -196,7 +194,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.ClientSize = new System.Drawing.Size(583, 630);
-            this.Controls.Add(this.sPanel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDescription);
@@ -212,7 +210,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj Zadatak";
             this.Load += new System.EventHandler(this.AddTaskForm_Load);
-            this.sPanel1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,7 +228,7 @@
         private System.Windows.Forms.RichTextBox txtDescription;
         private Sipaa.Framework.SButton btnClose;
         private Sipaa.Framework.SButton btnSave;
-        private Sipaa.Framework.SPanel sPanel1;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
     }
 }

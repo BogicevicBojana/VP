@@ -33,6 +33,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnUpdateRecord = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.checkBox_Mine = new System.Windows.Forms.CheckBox();
+            this.btnAddTask = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_issued = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.date_due = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +46,7 @@
             this.is_completed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hours_spent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdateRecord = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.checkBox_Mine = new System.Windows.Forms.CheckBox();
-            this.btnAddTask = new System.Windows.Forms.Button();
+            this.team_member_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +94,8 @@
             this.title,
             this.is_completed,
             this.description,
-            this.hours_spent});
+            this.hours_spent,
+            this.team_member_id});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,6 +118,64 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1208, 627);
             this.dataGridView1.TabIndex = 14;
+            // 
+            // btnUpdateRecord
+            // 
+            this.btnUpdateRecord.BackColor = System.Drawing.Color.SlateBlue;
+            this.btnUpdateRecord.FlatAppearance.BorderSize = 0;
+            this.btnUpdateRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdateRecord.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdateRecord.ForeColor = System.Drawing.Color.White;
+            this.btnUpdateRecord.Location = new System.Drawing.Point(841, 34);
+            this.btnUpdateRecord.Name = "btnUpdateRecord";
+            this.btnUpdateRecord.Size = new System.Drawing.Size(163, 44);
+            this.btnUpdateRecord.TabIndex = 16;
+            this.btnUpdateRecord.Text = "Izmeni zapis";
+            this.btnUpdateRecord.UseVisualStyleBackColor = false;
+            this.btnUpdateRecord.Click += new System.EventHandler(this.btnUpdateRecord_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.Sienna;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Location = new System.Drawing.Point(1023, 34);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(163, 44);
+            this.btnDelete.TabIndex = 15;
+            this.btnDelete.Text = "Obriši zapis";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // checkBox_Mine
+            // 
+            this.checkBox_Mine.AutoSize = true;
+            this.checkBox_Mine.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox_Mine.ForeColor = System.Drawing.Color.White;
+            this.checkBox_Mine.Location = new System.Drawing.Point(35, 95);
+            this.checkBox_Mine.Name = "checkBox_Mine";
+            this.checkBox_Mine.Size = new System.Drawing.Size(365, 25);
+            this.checkBox_Mine.TabIndex = 17;
+            this.checkBox_Mine.Text = "Prikaži samo zadatke koje sam ja kreirao";
+            this.checkBox_Mine.UseVisualStyleBackColor = true;
+            this.checkBox_Mine.CheckedChanged += new System.EventHandler(this.checkBox_Mine_CheckedChanged);
+            // 
+            // btnAddTask
+            // 
+            this.btnAddTask.BackColor = System.Drawing.Color.OliveDrab;
+            this.btnAddTask.FlatAppearance.BorderSize = 0;
+            this.btnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddTask.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddTask.ForeColor = System.Drawing.Color.White;
+            this.btnAddTask.Location = new System.Drawing.Point(660, 34);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(163, 44);
+            this.btnAddTask.TabIndex = 18;
+            this.btnAddTask.Text = "Dodaj zapis";
+            this.btnAddTask.UseVisualStyleBackColor = false;
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // id
             // 
@@ -186,62 +246,13 @@
             this.hours_spent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.hours_spent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // btnUpdateRecord
+            // team_member_id
             // 
-            this.btnUpdateRecord.BackColor = System.Drawing.Color.SlateBlue;
-            this.btnUpdateRecord.FlatAppearance.BorderSize = 0;
-            this.btnUpdateRecord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdateRecord.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdateRecord.ForeColor = System.Drawing.Color.White;
-            this.btnUpdateRecord.Location = new System.Drawing.Point(841, 34);
-            this.btnUpdateRecord.Name = "btnUpdateRecord";
-            this.btnUpdateRecord.Size = new System.Drawing.Size(163, 44);
-            this.btnUpdateRecord.TabIndex = 16;
-            this.btnUpdateRecord.Text = "Izmeni zapis";
-            this.btnUpdateRecord.UseVisualStyleBackColor = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.BackColor = System.Drawing.Color.Sienna;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(1023, 34);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(163, 44);
-            this.btnDelete.TabIndex = 15;
-            this.btnDelete.Text = "Obriši zapis";
-            this.btnDelete.UseVisualStyleBackColor = false;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // checkBox_Mine
-            // 
-            this.checkBox_Mine.AutoSize = true;
-            this.checkBox_Mine.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox_Mine.ForeColor = System.Drawing.Color.White;
-            this.checkBox_Mine.Location = new System.Drawing.Point(35, 95);
-            this.checkBox_Mine.Name = "checkBox_Mine";
-            this.checkBox_Mine.Size = new System.Drawing.Size(365, 25);
-            this.checkBox_Mine.TabIndex = 17;
-            this.checkBox_Mine.Text = "Prikaži samo zadatke koje sam ja kreirao";
-            this.checkBox_Mine.UseVisualStyleBackColor = true;
-            this.checkBox_Mine.CheckedChanged += new System.EventHandler(this.checkBox_Mine_CheckedChanged);
-            // 
-            // btnAddTask
-            // 
-            this.btnAddTask.BackColor = System.Drawing.Color.OliveDrab;
-            this.btnAddTask.FlatAppearance.BorderSize = 0;
-            this.btnAddTask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddTask.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTask.ForeColor = System.Drawing.Color.White;
-            this.btnAddTask.Location = new System.Drawing.Point(660, 34);
-            this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(163, 44);
-            this.btnAddTask.TabIndex = 18;
-            this.btnAddTask.Text = "Dodaj zapis";
-            this.btnAddTask.UseVisualStyleBackColor = false;
-            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
+            this.team_member_id.HeaderText = "TeamMemberId";
+            this.team_member_id.MinimumWidth = 6;
+            this.team_member_id.Name = "team_member_id";
+            this.team_member_id.ReadOnly = true;
+            this.team_member_id.Visible = false;
             // 
             // UC_Tasks
             // 
@@ -280,5 +291,6 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn is_completed;
         private System.Windows.Forms.DataGridViewTextBoxColumn description;
         private System.Windows.Forms.DataGridViewTextBoxColumn hours_spent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn team_member_id;
     }
 }

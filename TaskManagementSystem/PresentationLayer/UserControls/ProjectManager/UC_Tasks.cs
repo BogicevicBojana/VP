@@ -57,7 +57,8 @@ namespace PresentationLayer.UserControls.ProjectManager
                     item.Title,
                     item.IsCompleted,
                     item.Description,
-                    item.HoursSpent
+                    item.HoursSpent,
+                    item.TeamMemberId,
                 };
 
                 dataGridView1.Rows.Add(newItem);
@@ -95,6 +96,28 @@ namespace PresentationLayer.UserControls.ProjectManager
             Forms.AddTaskForm addTaskForm = new Forms.AddTaskForm(taskBusiness, projectManagerBusiness, currentProjectManager);
             addTaskForm.ShowDialog();
             InitializeDGW();
+        }
+
+        private void btnUpdateRecord_Click(object sender, EventArgs e)
+        {
+            var selectedTask = new Shared.Models.Task();
+
+            selectedTask.Id = Convert.ToInt32(getValueFromDGW(0));
+            selectedTask.DateIssued = DateTime.Parse(getValueFromDGW(1).ToString());
+            selectedTask.DueDate = DateTime.Parse(getValueFromDGW(2).ToString());
+            selectedTask.TeamMemberId = Convert.ToInt32(getValueFromDGW(9));
+            selectedTask.Title = getValueFromDGW(5).ToString();
+            selectedTask.IsCompleted = Boolean.Parse(getValueFromDGW(6).ToString());
+            selectedTask.Description = getValueFromDGW(7).ToString();
+
+            Forms.EditTaskForm editForm = new Forms.EditTaskForm(selectedTask, GetTeamMemberByTask(selectedTask), taskBusiness);
+            editForm.ShowDialog();
+            InitializeDGW();
+        }
+
+        private Object getValueFromDGW(int cellIndex)
+        {
+            return dataGridView1.CurrentRow.Cells[cellIndex].Value;
         }
     }
 }
