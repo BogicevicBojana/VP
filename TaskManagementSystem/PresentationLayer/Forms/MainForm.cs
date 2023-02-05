@@ -76,7 +76,7 @@ namespace PresentationLayer
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            UC_Managers u = new UC_Managers(new ProjectManagerBusiness(new ProjectManagerRepository()), new AdminBusiness(new AdminRepository()));
+            UC_Managers u = new UC_Managers(new AdminBusiness(new AdminRepository()));
             AddUserControl(u);
             HandleButtonClick(btnManagers);
         }
@@ -125,6 +125,8 @@ namespace PresentationLayer
 
         private void btnAddManager_Click(object sender, EventArgs e)
         {
+            UC_AddManager u = new UC_AddManager(new AdminBusiness(new AdminRepository()));
+            AddUserControl(u);
             HandleButtonClick(btnAddManager);
         }
 
@@ -144,5 +146,12 @@ namespace PresentationLayer
             this.admin = null;
             this.Close();
         }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        
     }
 }

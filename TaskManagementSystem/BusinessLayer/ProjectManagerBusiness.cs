@@ -20,6 +20,7 @@ namespace BusinessLayer
         {
             return this.projectManagerRepository.GetAllTeamMembers();
         }
+
         public string InsertTeamMember(TeamMember tm)
         {
             int rowsAffected = this.projectManagerRepository.InsertTeamMember(tm);
@@ -82,6 +83,11 @@ namespace BusinessLayer
             {
                 return "Neuspešno brisanje zadatka!";
             }
+        }
+
+        List<Task> IProjectManagerBusiness.GetAllTasksForProjectManager(int id)
+        {
+            return GetAllTasks().FindAll(t => t.ProjectManagerId == id);
         }
     }
 }

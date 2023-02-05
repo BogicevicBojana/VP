@@ -31,10 +31,11 @@ namespace DataAccessLayer.Repositories
                     tm.DateOfBirth = reader.GetDateTime(4);
                     tm.PlaceOfBirth = reader.GetString(5);
                     tm.DateEmployed = reader.GetDateTime(6);
+                    tm.Email = reader.GetString(7);
                     tm.PhoneNumber = reader.GetString(9);
                     tm.CompletedTasks = reader.GetInt32(10);
                     tm.NotCompletedTasks = reader.GetInt32(11);
-                    tm.HoursSpent = reader.GetDouble(12);
+                    tm.HoursSpent = (double)reader.GetDecimal(12);
                     ListOfTeamMembers.Add(tm);
                 }
                 reader.Close();
@@ -157,8 +158,11 @@ namespace DataAccessLayer.Repositories
                     task.Title = reader.GetString(5);
                     task.IsCompleted = reader.GetBoolean(6);
                     task.Description = reader.GetString(7);
-                    task.HoursSpent = reader.GetDouble(8);
+                    task.HoursSpent = (double)reader.GetDecimal(8);
+
+                    tasks.Add(task);
                 }
+
                 reader.Close();
                 connection.Close();
                 return tasks;
