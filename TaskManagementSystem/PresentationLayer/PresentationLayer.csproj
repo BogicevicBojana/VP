@@ -176,6 +176,14 @@
     <Compile Include="UserControls\ProjectManager\UC_TeamMembers.Designer.cs">
       <DependentUpon>UC_TeamMembers.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\TeamMember\UC_TeamMemberProfile.cs" />
+    <Compile Include="UserControls\TeamMember\UC_TeamMemberProfile.Designer.cs">
+      <DependentUpon>UC_TeamMemberProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TeamMember\UC_TeamMemberTasks.cs" />
+    <Compile Include="UserControls\TeamMember\UC_TeamMemberTasks.Designer.cs">
+      <DependentUpon>UC_TeamMemberTasks.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Forms\AddTaskForm.resx">
       <DependentUpon>AddTaskForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +235,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ProjectManager\UC_TeamMembers.resx">
       <DependentUpon>UC_TeamMembers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TeamMember\UC_TeamMemberProfile.resx">
+      <DependentUpon>UC_TeamMemberProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TeamMember\UC_TeamMemberTasks.resx">
+      <DependentUpon>UC_TeamMemberTasks.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
